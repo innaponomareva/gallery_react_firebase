@@ -114,6 +114,7 @@ const Gallery = ({gallery}) => {
           <GridList
             gallery={gallery}
             onThumbnailClickHandler={onThumbnailClickHandler}
+            width={width}
           />
           <ModalWindow 
             gallery={gallery} 
@@ -128,10 +129,10 @@ const Gallery = ({gallery}) => {
 
         {width < 700 && 
         <>
-          <div className="blocker"></div>
           <GridList
             gallery={gallery}
             onThumbnailClickHandler={onThumbnailClickHandler}
+            width={width}
           />
         </>
         }
