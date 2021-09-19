@@ -1,0 +1,32 @@
+/* **** Navigation **** */
+.navi {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: flex-start;
+  position: sticky;
+  background-color: rgb(22, 38, 101);
+  box-sizing: border-box;
+  padding: 0 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  z-index: 2;
+}
+.navi-button {
+  list-style: none;
+  padding: 20px 0 20px 30px;
+  font-size: 15px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.navi-button a {
+  color: white;
+  text-decoration: none;
+}
+.navi-button a.active {
+  font-weight: 500;
+}

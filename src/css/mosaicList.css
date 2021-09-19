@@ -1,0 +1,27 @@
+.mosaic-list {
+  margin: 0 auto;
+  display: block;
+}
+.row{
+  width: calc(100% + 10px);
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.row-item {
+  margin-right: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.row-item img {
+  width: 100%;
+}
+
+@media screen and (max-width: 1100px){
+  .row-item img {
+    width: inherit;
+    height: 100%;
+  }
+}

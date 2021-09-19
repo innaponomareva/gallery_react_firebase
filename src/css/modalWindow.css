@@ -1,0 +1,175 @@
+/* *** ModalWindow *** */
+.blocker {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.modal-window {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  background-color: white;
+  padding: 50px;
+}
+.modal-window .slider {
+  border: none;
+}
+.close-icon-slider {
+  font-size: 30px;
+  color: gray;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+.slider {
+  border: 1px solid gray;
+  position: relative;
+}
+.slider img {
+  display: block;
+  margin: 0 auto;
+  height: 500px;
+}
+
+.chevron-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 350px;
+  left: 0;
+  right: 0;
+}
+.chevron {
+  display: flex;
+  font-size: 40px;
+  color: white;
+  padding: 20px;
+  cursor: pointer;
+}
+.symbol-btn {
+  font-size: 28px;
+  padding: 10px 10px 0;
+  color: gray;
+  background-color: white;
+  max-height: 50px;
+}
+
+/* *** InfoBox *** */
+.info-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 80px;
+  margin: 20px auto 0;
+}
+.desc{
+  width: 200px;
+  flex-grow: 1;
+  height: fit-content;
+  min-height: 80px;
+  font-size: 18px;
+  line-height: 1.6rem;
+  color: rgb(70, 70, 70);
+}
+.desc a{
+  display: inline;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+.desc a:hover {
+  text-decoration: underline;
+}
+.btn-container {
+  display: flex;
+}
+.edit-btn:hover {
+  color: rgb(32, 161, 241);
+}
+.remove-btn:hover {
+  color: rgb(252, 64, 22);
+}
+
+/* *** EditBox *** */
+.edit-box {
+  display: none;
+  justify-content: space-between;
+  margin: 20px auto 0;
+}
+.edit-box textarea {
+  width: 200px;
+  flex-grow: 1;
+  height: fit-content;
+  min-height: 80px;
+  border: none;
+  outline: none;
+  color:rgb(22, 38, 101);
+  font-size: 18px;
+  line-height: 1.6rem;
+  resize: none;
+}
+.edit-box textarea:focus {
+  outline: none;
+}
+.cancel-btn:hover {
+  color: rgb(252, 64, 22);
+}
+.save-btn:hover {
+  color: rgb(0, 179, 0);
+}
+
+
+@media screen and (max-width: 1100px){
+  .modal-window {
+    padding: 40px;
+  }
+  .close-icon-slider {
+    font-size: 25px;
+    top: 10px;
+    right: 10px;
+  }
+  .slider img{
+    height: 350px;
+  }
+  .chevron-container {
+    top: 300px;
+  }
+  .desc{
+    width: 150px;
+    font-size: 17px;
+  }
+  .edit-box textarea {
+    width: 150px;
+    font-size: 17px;
+  }
+  .symbol-btn {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .slider img{
+    height: 300px;
+  }
+}
+
+@media screen and (max-height: 450px){
+  .modal-window {
+    padding: 30px;
+    width: 450px;
+  }
+  .slider img{
+    height: 150px;
+  }
+  .chevron-container {
+    top: 180px;
+  }
+  
+}
+
