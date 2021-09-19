@@ -28,6 +28,14 @@
   font-size: 18px;
   color: rgb(55, 55, 55);
 }
+.start-text {
+  width: fit-content;
+  margin: 80px auto 0;
+  font-size: 25px;
+  line-height: 2.3rem;
+  text-align: center;
+  color: rgb(55, 55, 55);
+}
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: rgb(148, 148, 148);
 }
@@ -40,7 +48,13 @@
 }
 
 
-
+@media screen and (max-width: 600px){
+  .start-text {
+    font-size: 24px;
+    width: 250px;
+  }
+  
+}
 
 
 
