@@ -108,33 +108,12 @@ const Gallery = ({gallery}) => {
     <div className="gallery">
       { gallery.length > 0 ?
       <>
-        {width > 1100 &&  
+        {width > 700 &&  
         <>
           <div className="blocker"></div>
-          <MosaicList
+          <GridList
             gallery={gallery}
             onThumbnailClickHandler={onThumbnailClickHandler}
-            lineWidth={1000}
-          />
-
-          <ModalWindow 
-            gallery={gallery} 
-            index={index} 
-            prevBtnHandler={prevBtnHandler} 
-            nextBtnHandler={nextBtnHandler} 
-            onRemoveClickHandler={onRemoveClickHandler} 
-            onCloseClickHandler={onCloseClickHandler}
-          />
-        </>
-        }
-
-        {width > 700 && width < 1100 && 
-        <>
-          <div className="blocker"></div>
-          <MosaicList
-            gallery={gallery}
-            onThumbnailClickHandler={onThumbnailClickHandler}
-            lineWidth={700}
           />
           <ModalWindow 
             gallery={gallery} 
@@ -153,7 +132,6 @@ const Gallery = ({gallery}) => {
           <GridList
             gallery={gallery}
             onThumbnailClickHandler={onThumbnailClickHandler}
-            lineWidth={400}
           />
         </>
         }
