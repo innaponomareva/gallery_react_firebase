@@ -7,8 +7,8 @@ const Navigation = () => {
   return (
     <>
       <ul className="navi">
-        <li className="navi-button"><NavLink to="/gallery_react_firebase">My photos</NavLink></li>
-        <li className="navi-button"><NavLink to="/gallery_react_firebase/upload">Upload a photo</NavLink></li>
+        <li className="navi-button"><NavLink to="/myphotos">My photos</NavLink></li>
+        <li className="navi-button"><NavLink to="/upload">Upload a photo</NavLink></li>
       </ul>
     </>
   )

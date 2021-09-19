@@ -41,7 +41,7 @@ const Gallery = ({gallery}) => {
       document.querySelector('.blocker').style.opacity = '90%';
     }else if(width < 700){
       const targetIndex = event.target.getAttribute('data-index');
-      history.push(`/gallery_react_firebase/photosinfo/${targetIndex}`);
+      history.push(`/photosinfo/${targetIndex}`);
     }
   }
 

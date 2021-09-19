@@ -19,7 +19,7 @@ const VerticalList = () => {
       setWidth(window.innerWidth);
     }
     if(width > 700){
-      history.push('/gallery_react_firebase')
+      history.push('/myphotos')
     }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

@@ -16,7 +16,7 @@ const InfoBox = ({gallery, index, onRemoveClickHandler}) => {
         const interpunktion = itemArray.filter(char => char === '!' || char === '?' || char === '.' || char === ',' || char === ':' || char === ';');
         itemArray = itemArray.filter(char => char !== '!' && char !== '?' && char !== '.' && char !== ',' && char !== ':' && char !== ';');
         const path = itemArray.join('');
-        const link = <NavLink key={ind} to={`/gallery_react_firebase/${path}`}>{'#' + path}</NavLink>;
+        const link = <NavLink key={ind} to={`/myphotos/${path}`}>{'#' + path}</NavLink>;
         if(interpunktion.length > 0){
           output.push(link);
           output.push(interpunktion.join(''));

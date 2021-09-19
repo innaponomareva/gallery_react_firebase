@@ -14,11 +14,11 @@ function App() {
       <Navigation />
       <div className="wrapper">
         <Switch>
-        <Route path="/gallery_react_firebase/photosinfo/:id" component={VerticalList} />
-          <Route path="/gallery_react_firebase/photosinfo" exact component={VerticalList} />
-          <Route path="/gallery_react_firebase/upload" exact component={UploadPhoto} />
-          <Route path="/gallery_react_firebase/:id" component={FilteredPhotos} />
-          <Route path="/gallery_react_firebase" exact component={MyPhotos} />
+        <Route path="/photosinfo/:id" component={VerticalList} />
+          <Route path="/photosinfo" exact component={VerticalList} />
+          <Route path="/upload" exact component={UploadPhoto} />
+          <Route path="/myphotos/:id" component={FilteredPhotos} />
+          <Route path="/myphotos" exact component={MyPhotos} />
         </Switch>
       </div>
     </div>
