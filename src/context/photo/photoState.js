@@ -2,19 +2,22 @@ import React, { useCallback, useReducer } from 'react';
 import { PhotoContext } from './photoContext';
 import { PhotoReducer } from './photoReducer';
 import { addPhoto_fb, getAllPhotos_fb, removePhoto_fb, updatePhoto_fb } from '../../service/photoService';
-import { ADD_PHOTO, GET_ALL_PHOTOS, REMOVE_PHOTO, SET_LOADING, STOP_LOADING, UPDATE_PHOTO } from "../types";
+import { ADD_PHOTO, GET_ALL_PHOTOS, REMOVE_PHOTO, SET_INDEX, SET_LOADING, STOP_LOADING, UPDATE_PHOTO } from "../types";
 
 
 
 export const PhotoState = ({children}) => {
   const initialState = {
     photos: [],
+    targetIndex: 0,
     loading: false
   }
   const [state, dispatch] = useReducer(PhotoReducer, initialState);
-  const { photos, loading } = state;
+  const { photos, targetIndex, loading } = state;
 
-  console.log('photos', photos)
+  const defineTargetIndex = (index) => {
+    setDefineTargetIndex(index);
+  }
 
 
   const addPhoto = async(photo) => {
@@ -64,16 +67,19 @@ export const PhotoState = ({children}) => {
   const setGetAllPhotos = data => dispatch({type: GET_ALL_PHOTOS, payload: data});
   const setLoading = () => dispatch({type: SET_LOADING});
   const stopLoading = () => dispatch({type: STOP_LOADING});
+  const setDefineTargetIndex = index => dispatch({type: SET_INDEX, payload: index});
     
 
   return(
     <PhotoContext.Provider value={{
       photos,
       loading,
+      targetIndex,
       addPhoto,
       removePhoto,
       updatePhoto,
       getAllPhotos,
+      defineTargetIndex
     }}>
       {children}
     </PhotoContext.Provider>

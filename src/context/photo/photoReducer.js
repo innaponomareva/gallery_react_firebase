@@ -1,4 +1,4 @@
-import { ADD_PHOTO, GET_ALL_PHOTOS, REMOVE_PHOTO, SET_LOADING, STOP_LOADING, UPDATE_PHOTO } from "../types";
+import { ADD_PHOTO, GET_ALL_PHOTOS, REMOVE_PHOTO, SET_INDEX, SET_LOADING, STOP_LOADING, UPDATE_PHOTO } from "../types";
 
 const handlers = {
   [ADD_PHOTO]: (state, {payload}) => {
@@ -18,6 +18,9 @@ const handlers = {
     arr[photoIndex].description = payload.description;
     arr[photoIndex].hashtags = payload.hashtags;
     return {...state, photos: arr}
+  },
+  [SET_INDEX]: (state, {payload}) => {
+    return {...state, targetIndex: +payload}
   },
   [SET_LOADING]: state => ({...state, loading: true}),
   [STOP_LOADING]: state => ({...state, loading: false}),

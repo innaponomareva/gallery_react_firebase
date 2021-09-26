@@ -53,9 +53,7 @@ input[type="file" i]::-webkit-file-upload-button {
   margin-left: auto;
 }
 
-
-
-@media screen and (max-width: 850px){
+@media screen and (max-width: 850px) {
   .form {
     width: 90%;
     padding: 40px 30px;

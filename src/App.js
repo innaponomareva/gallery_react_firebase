@@ -15,7 +15,7 @@ function App() {
       <Navigation />
       <div className="wrapper">
         <Switch>
-        <Route path="/photosinfo/:id" component={VerticalList} />
+          {/* <Route path="/photosinfo/:id" component={VerticalList} /> */}
           <Route path="/photosinfo" exact component={VerticalList} />
           <Route path="/upload" exact component={UploadPhoto} />
           <Route path="/myphotos/:id" component={FilteredPhotos} />
