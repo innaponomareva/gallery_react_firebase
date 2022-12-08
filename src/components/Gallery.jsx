@@ -25,6 +25,7 @@ const Gallery = ({ gallery }) => {
   const onCloseClickHandler = () => {
     setIndex(0);
     setOpen(false);
+    window.scroll(0, 0);
   };
 
   return (
@@ -64,6 +65,7 @@ const Gallery = ({ gallery }) => {
                 <VerticalList
                   gallery={gallery}
                   targetIndex={index}
+                  width={width}
                   onCloseClickHandler={onCloseClickHandler}
                 />
               )}

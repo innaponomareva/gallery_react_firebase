@@ -12,7 +12,8 @@
   margin: 0 auto;
   padding: 6rem 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .gallery {
@@ -41,12 +42,12 @@
 
 @media screen and (max-width: 800px) {
   .wrapper {
-    padding: 5.1rem 2rem;
+    padding: 4.7rem 1rem 0;
   }
 }
 
 @media screen and (max-width: 500px) {
   .wrapper {
-    padding: 4.1rem 0.5rem;
+    padding: 4.1rem 0.5rem 0;
   }
 }

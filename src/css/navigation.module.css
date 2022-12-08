@@ -1,14 +1,14 @@
 /* **** Navigation **** */
 .nav {
-  display: flex;
-  gap: 2rem;
-  position: fixed;
-  background-color: rgb(22, 38, 101);
   padding: 1.25rem 5%;
-  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background-color: rgb(22, 38, 101);
+  position: fixed;
+
   left: 0;
   right: 0;
-  margin: 0;
   z-index: 2;
 }
 .nav_btn {
@@ -24,11 +24,4 @@
 }
 .nav_btn a.active {
   font-weight: 500;
-}
-
-@media screen and (max-width: 400px) {
-  .nav {
-    padding: 1.25rem 3%;
-    justify-content: center;
-  }
 }

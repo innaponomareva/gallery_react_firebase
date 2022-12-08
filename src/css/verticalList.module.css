@@ -1,5 +1,8 @@
 .vertical_list {
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 6rem;
 }
 
 .photo_item {
@@ -11,7 +14,6 @@
 }
 
 .divider {
-  margin: 0 0 2rem;
   border-bottom: 1px solid lightgray;
 }
 
