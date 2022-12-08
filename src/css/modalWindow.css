@@ -1,0 +1,22 @@
+/* *** ModalWindow *** */
+
+.blocker {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #464646;
+  opacity: 90%;
+}
+.modal_window {
+  position: fixed;
+  z-index: 1;
+  background-color: white;
+  padding: 3rem;
+  min-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}

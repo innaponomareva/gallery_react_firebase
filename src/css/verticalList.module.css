@@ -1,0 +1,26 @@
+.vertical_list {
+  padding: 0 5%;
+}
+
+.photo_item {
+  margin-bottom: 1rem;
+}
+
+.photo_item img {
+  width: 100%;
+}
+
+.divider {
+  margin: 0 0 2rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.close_icon_verticalList {
+  font-size: 30px;
+  color: white;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  z-index: 2;
+}

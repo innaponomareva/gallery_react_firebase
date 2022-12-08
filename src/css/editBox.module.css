@@ -1,0 +1,90 @@
+/* *** EditBox *** */
+
+.edit_box {
+  display: flex;
+  gap: 1rem;
+}
+
+.desc {
+  width: 200px;
+  flex-grow: 1;
+  min-height: 7rem;
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  color: rgb(70, 70, 70);
+  overflow-y: scroll;
+}
+
+.desc a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.desc a:hover {
+  color: black;
+}
+
+.btn_container {
+  display: flex;
+  gap: 1.1rem;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.symbol_btn {
+  display: flex;
+  height: fit-content;
+  justify-content: center;
+  font-size: 27px;
+  color: gray;
+}
+
+.edit_btn:hover {
+  color: rgb(32, 161, 241);
+}
+
+.remove_btn:hover {
+  color: rgb(252, 64, 22);
+}
+
+.edit_box textarea {
+  flex-grow: 1;
+  min-height: 7rem;
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  border: none;
+  outline: none;
+  color: rgb(70, 70, 70);
+  resize: none;
+}
+
+.edit_box textarea:focus {
+  outline: none;
+}
+
+.cancel_btn:hover {
+  color: rgb(252, 64, 22);
+}
+
+.save_btn:hover {
+  color: rgb(0, 179, 0);
+}
+
+@media screen and (max-width: 450px) {
+  .desc,
+  .edit_box textarea {
+    font-size: 1rem;
+  }
+
+  .symbol_btn {
+    font-size: 20px;
+  }
+  .btn_container {
+    gap: 0.8rem;
+  }
+}

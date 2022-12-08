@@ -1,0 +1,33 @@
+.slider {
+  border: none;
+}
+.close_icon_slider {
+  font-size: 1.9rem;
+  color: gray;
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  cursor: pointer;
+}
+
+.slider img {
+  display: block;
+  margin: 0 auto;
+  height: 500px;
+}
+
+.chevron_container {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: calc(100% / 2 - 2.5rem);
+  left: 0;
+  right: 0;
+}
+.chevron {
+  display: flex;
+  font-size: 2.5rem;
+  color: white;
+  padding: 20px;
+  cursor: pointer;
+}

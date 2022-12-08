@@ -1,0 +1,8 @@
+.notfound {
+  width: fit-content;
+  margin: 40px auto 0;
+  font-size: 20px;
+  line-height: 2.3rem;
+  text-align: center;
+  color: rgb(55, 55, 55);
+}

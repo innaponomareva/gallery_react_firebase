@@ -1,0 +1,16 @@
+.row {
+  width: calc(100% + 10px);
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.row_item {
+  margin-right: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+.row_item img {
+  height: 100%;
+}
