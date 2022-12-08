@@ -4,26 +4,7 @@ import clsx from "clsx";
 import { BsX } from "react-icons/bs";
 import EditBox from "./EditBox";
 
-const VerticalList = ({ gallery, width, targetIndex, onCloseClickHandler }) => {
-  useEffect(() => {
-    function findPos(obj) {
-      let curtop = 0;
-      if (obj.offsetParent) {
-        do {
-          curtop =
-            width >= 500
-              ? curtop + obj.offsetTop - 75
-              : curtop + obj.offsetTop - 66;
-        } while (obj === obj.offsetParent);
-        return [curtop];
-      }
-    }
-    const anchor = document.querySelector(`.photo-item-${targetIndex}`);
-    if (anchor) {
-      window.scroll(0, findPos(anchor));
-    }
-  }, [targetIndex, width]);
-
+const VerticalList = ({ gallery, onCloseClickHandler }) => {
   return (
     <>
       {gallery.length > 0 && (
