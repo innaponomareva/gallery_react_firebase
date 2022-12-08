@@ -7,10 +7,8 @@ import EditBox from "./EditBox";
 const VerticalList = ({ gallery, width, index, onCloseClickHandler }) => {
   const findPos = useCallback(
     (obj) => {
-      if (obj.offsetParent) {
-        const position = width >= 500 ? obj.offsetTop - 75 : obj.offsetTop - 66;
-        return position;
-      }
+      const position = width >= 500 ? obj.offsetTop - 75 : obj.offsetTop - 66;
+      return position;
     },
     [width]
   );
@@ -18,7 +16,10 @@ const VerticalList = ({ gallery, width, index, onCloseClickHandler }) => {
   useEffect(() => {
     const anchor = document.querySelector(`.photo-item-${index}`);
     if (anchor) {
-      window.scroll(0, findPos(anchor));
+      setTimeout(
+        () => window.scroll({ top: findPos(anchor), behavior: "smooth" }),
+        200
+      );
     }
   }, [findPos, index]);
 

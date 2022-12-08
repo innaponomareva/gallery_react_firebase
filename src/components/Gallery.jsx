@@ -34,39 +34,26 @@ const Gallery = ({ gallery }) => {
         <>
           {width > 800 && (
             <>
-              {open ? <div className="blocker"></div> : <></>}
-              {!open ? (
-                <MosaicList
-                  gallery={gallery}
-                  onPhotoClickHandler={onPhotoClickHandler}
-                  lineWidth={width >= 1000 ? 1000 : 800}
-                />
-              ) : (
-                <></>
+              {open && (
+                <>
+                  <div className="blocker"></div>
+                  <ModalWindow
+                    gallery={gallery}
+                    initialIndex={index}
+                    onCloseClickHandler={onCloseClickHandler}
+                  />
+                </>
               )}
-              {open ? (
-                <ModalWindow
-                  gallery={gallery}
-                  initialIndex={index}
-                  onCloseClickHandler={onCloseClickHandler}
-                />
-              ) : (
-                <></>
-              )}
+              <MosaicList
+                gallery={gallery}
+                onPhotoClickHandler={onPhotoClickHandler}
+                lineWidth={width >= 1000 ? 1000 : 800}
+              />
             </>
           )}
 
           {width <= 800 && (
             <>
-              {!open ? (
-                <MosaicList
-                  gallery={gallery}
-                  onPhotoClickHandler={onPhotoClickHandler}
-                  lineWidth={width >= 500 ? width - 32 : width - 16}
-                />
-              ) : (
-                <></>
-              )}
               {open ? (
                 <VerticalList
                   gallery={gallery}
@@ -75,7 +62,11 @@ const Gallery = ({ gallery }) => {
                   onCloseClickHandler={onCloseClickHandler}
                 />
               ) : (
-                <></>
+                <MosaicList
+                  gallery={gallery}
+                  onPhotoClickHandler={onPhotoClickHandler}
+                  lineWidth={width >= 500 ? width - 32 : width - 16}
+                />
               )}
             </>
           )}
