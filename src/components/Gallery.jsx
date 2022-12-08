@@ -9,6 +9,10 @@ const Gallery = ({ gallery }) => {
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
+  useEffect(() => {
     function handleResize() {
       setWidth(window.innerWidth);
     }
@@ -25,7 +29,6 @@ const Gallery = ({ gallery }) => {
   const onCloseClickHandler = () => {
     setIndex(0);
     setOpen(false);
-    window.scroll(0, 0);
   };
 
   return (
