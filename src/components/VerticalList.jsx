@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import styles from "../css/verticalList.module.css";
 import clsx from "clsx";
 import { BsX } from "react-icons/bs";
 import EditBox from "./EditBox";
 
-const VerticalList = ({ gallery, onCloseClickHandler }) => {
+const VerticalList = ({ gallery, width, index, onCloseClickHandler }) => {
+  const findPos = useCallback(
+    (obj) => {
+      if (obj.offsetParent) {
+        const position = width >= 500 ? obj.offsetTop - 75 : obj.offsetTop - 66;
+        return position;
+      }
+    },
+    [width]
+  );
+
+  useEffect(() => {
+    const anchor = document.querySelector(`.photo-item-${index}`);
+    if (anchor) {
+      window.scroll(0, findPos(anchor));
+    }
+  }, [findPos, index]);
+
   return (
     <>
       {gallery.length > 0 && (

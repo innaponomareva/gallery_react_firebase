@@ -16,29 +16,6 @@ const Gallery = ({ gallery }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, [width, setOpen]);
 
-  useEffect(() => {
-    function findPos(obj) {
-      let curtop = 0;
-      if (obj.offsetParent) {
-        do {
-          curtop =
-            width >= 500
-              ? curtop + obj.offsetTop - 75
-              : curtop + obj.offsetTop - 66;
-        } while (obj === obj.offsetParent);
-        return [curtop];
-      }
-    }
-    const anchor = document.querySelector(`.photo-item-${index}`);
-    if (anchor) {
-      window.scroll(0, findPos(anchor));
-      console.log("scroll to anchor");
-    } else {
-      window.scroll(0, 0);
-      console.log("scroll to start");
-    }
-  }, [index, width]);
-
   const onPhotoClickHandler = (event) => {
     const currIndex = event.target.getAttribute("data-index");
     setIndex(parseInt(currIndex));
@@ -48,6 +25,7 @@ const Gallery = ({ gallery }) => {
   const onCloseClickHandler = () => {
     setIndex(0);
     setOpen(false);
+    window.scroll(0, 0);
   };
 
   return (
@@ -92,6 +70,8 @@ const Gallery = ({ gallery }) => {
               {open ? (
                 <VerticalList
                   gallery={gallery}
+                  width={width}
+                  index={index}
                   onCloseClickHandler={onCloseClickHandler}
                 />
               ) : (
