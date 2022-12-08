@@ -51,13 +51,13 @@ const Gallery = ({ gallery }) => {
             </>
           )}
 
-          {width > 450 && width <= 800 && (
+          {width <= 800 && (
             <>
               {!open && (
                 <MosaicList
                   gallery={gallery}
                   onPhotoClickHandler={onPhotoClickHandler}
-                  lineWidth={width - 50}
+                  lineWidth={width >= 500 ? width - 32 : width - 16}
                 />
               )}
               {open && (
@@ -68,10 +68,6 @@ const Gallery = ({ gallery }) => {
                 />
               )}
             </>
-          )}
-
-          {width <= 450 && (
-            <VerticalList gallery={gallery} targetIndex={index} />
           )}
         </>
       ) : (

@@ -38,3 +38,15 @@
   /* Microsoft Edge */
   color: rgb(148, 148, 148);
 }
+
+@media screen and (max-width: 800px) {
+  .wrapper {
+    padding: 5.1rem 2rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .wrapper {
+    padding: 4.1rem 0.5rem;
+  }
+}

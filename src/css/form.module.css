@@ -68,9 +68,9 @@ input[type="file" i]::-webkit-file-upload-button {
   cursor: default;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 800px) {
   .form {
-    width: 90%;
+    width: 100%;
     padding: 3rem 1.5rem;
   }
   input[type="file" i]::-webkit-file-upload-button {

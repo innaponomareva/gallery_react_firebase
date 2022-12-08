@@ -10,7 +10,7 @@ const VerticalList = ({ gallery, targetIndex, onCloseClickHandler }) => {
       let curtop = 0;
       if (obj.offsetParent) {
         do {
-          curtop = curtop + obj.offsetTop - 58.5;
+          curtop = curtop + obj.offsetTop - 57.5;
         } while (obj === obj.offsetParent);
         return [curtop];
       }
