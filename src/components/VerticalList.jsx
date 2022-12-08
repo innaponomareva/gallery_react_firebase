@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "../css/verticalList.module.css";
 import clsx from "clsx";
 import { BsX } from "react-icons/bs";

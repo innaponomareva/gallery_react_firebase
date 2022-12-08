@@ -56,38 +56,46 @@ const Gallery = ({ gallery }) => {
         <>
           {width > 800 && (
             <>
-              {open && <div className="blocker"></div>}
-              {!open && (
+              {open ? <div className="blocker"></div> : <></>}
+              {!open ? (
                 <MosaicList
                   gallery={gallery}
                   onPhotoClickHandler={onPhotoClickHandler}
                   lineWidth={width >= 1000 ? 1000 : 800}
                 />
+              ) : (
+                <></>
               )}
-              {open && (
+              {open ? (
                 <ModalWindow
                   gallery={gallery}
                   initialIndex={index}
                   onCloseClickHandler={onCloseClickHandler}
                 />
+              ) : (
+                <></>
               )}
             </>
           )}
 
           {width <= 800 && (
             <>
-              {!open && (
+              {!open ? (
                 <MosaicList
                   gallery={gallery}
                   onPhotoClickHandler={onPhotoClickHandler}
                   lineWidth={width >= 500 ? width - 32 : width - 16}
                 />
+              ) : (
+                <></>
               )}
-              {open && (
+              {open ? (
                 <VerticalList
                   gallery={gallery}
                   onCloseClickHandler={onCloseClickHandler}
                 />
+              ) : (
+                <></>
               )}
             </>
           )}
