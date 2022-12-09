@@ -10,7 +10,7 @@ import UploadPhoto from "./pages/UploadPhoto";
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Navigation />
       <div className="wrapper">
         <Switch>
@@ -23,7 +23,7 @@ function App() {
           <Route path="*" exact render={() => <Redirect to="/notfound" />} />
         </Switch>
       </div>
-    </>
+    </div>
   );
 }
 

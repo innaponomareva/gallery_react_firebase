@@ -25,6 +25,7 @@ const Gallery = ({ gallery }) => {
   const onCloseClickHandler = () => {
     setIndex(0);
     setOpen(false);
+    window.scroll({ top: 0 });
   };
 
   return (

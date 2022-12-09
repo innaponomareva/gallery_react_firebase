@@ -8,12 +8,12 @@
 }
 
 .wrapper {
-  min-height: 100vh;
   margin: 0 auto;
   padding: 6rem 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: scroll;
 }
 
 .gallery {
