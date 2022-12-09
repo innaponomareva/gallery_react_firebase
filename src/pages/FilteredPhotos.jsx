@@ -16,7 +16,11 @@ const FilteredPhotos = () => {
   return (
     <>
       {loading && <Loader />}
-      {!loading && selection.length > 0 && <Gallery gallery={selection} />}
+      {!loading && selection.length > 0 ? (
+        <Gallery gallery={selection} />
+      ) : (
+        <p>No photos found...</p>
+      )}
     </>
   );
 };

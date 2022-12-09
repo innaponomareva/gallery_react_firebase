@@ -6,10 +6,35 @@ import { BsCheckCircle, BsXCircle, BsTrash, BsPencil } from "react-icons/bs";
 import { PhotoContext } from "../context/photo/photoContext";
 import clsx from "clsx";
 
-const EditBox = ({ gallery, index }) => {
+const EditBox = ({ gallery, index, onHashtagClickHandler }) => {
   const { updatePhoto, removePhoto } = useContext(PhotoContext);
   const [isDisabled, setIsDisabled] = useState(true);
   const photo = gallery[index];
+
+  const transformDescription = (desc) => {
+    const output = [];
+    const temp = desc.split(" ");
+    temp.forEach((item, ind) => {
+      if (item.startsWith("#")) {
+        const path = item.substring(1, item.length);
+        const link = (
+          <NavLink
+            key={ind}
+            to={`/myphotos/${path}`}
+            onClick={onHashtagClickHandler}
+          >
+            {"#" + path}
+          </NavLink>
+        );
+        output.push(" ");
+        output.push(link);
+        output.push(" ");
+      } else {
+        output.push(" " + item + " ");
+      }
+    });
+    return output;
+  };
 
   const onRemoveClickHandler = () => {
     const result = window.confirm(
@@ -111,48 +136,4 @@ const getHashtags = (desc) => {
     return null;
   });
   return array;
-};
-
-const transformDescription = (desc) => {
-  const output = [];
-  const temp = desc.split(" ");
-  temp.forEach((item, ind) => {
-    if (item.startsWith("#")) {
-      let itemArray = item.split("");
-      itemArray.splice(0, 1);
-      const interpunktion = itemArray.filter(
-        (char) =>
-          char === "!" ||
-          char === "?" ||
-          char === "." ||
-          char === "," ||
-          char === ":" ||
-          char === ";"
-      );
-      itemArray = itemArray.filter(
-        (char) =>
-          char !== "!" &&
-          char !== "?" &&
-          char !== "." &&
-          char !== "," &&
-          char !== ":" &&
-          char !== ";"
-      );
-      const path = itemArray.join("");
-      const link = (
-        <NavLink key={ind} to={`/myphotos/${path}`}>
-          {"#" + path}
-        </NavLink>
-      );
-      if (interpunktion.length > 0) {
-        output.push(link);
-        output.push(interpunktion.join(""));
-      } else if (interpunktion.length === 0) {
-        output.push(link, " ");
-      }
-    } else {
-      output.push(item, " ");
-    }
-  });
-  return output;
 };

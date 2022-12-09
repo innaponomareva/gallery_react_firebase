@@ -32,7 +32,11 @@ const VerticalList = ({ gallery, width, index, onCloseClickHandler }) => {
               <div className={clsx(styles.photo_item, `photo-item-${ind}`)}>
                 <img src={item.fileUrl} data-index={ind} alt={item.id} />
               </div>
-              <EditBox gallery={gallery} index={ind} />
+              <EditBox
+                gallery={gallery}
+                index={ind}
+                onHashtagClickHandler={onCloseClickHandler}
+              />
               {onCloseClickHandler && (
                 <BsX
                   className={styles.close_icon_verticalList}

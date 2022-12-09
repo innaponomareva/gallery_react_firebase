@@ -45,7 +45,11 @@ const ModalWindow = ({ gallery, initialIndex, onCloseClickHandler }) => {
             prevBtnHandler={prevBtnHandler}
             nextBtnHandler={nextBtnHandler}
           />
-          <EditBox gallery={gallery} index={index} />
+          <EditBox
+            gallery={gallery}
+            index={index}
+            onHashtagClickHandler={onCloseClickHandler}
+          />
           <BsX className="close_icon_slider" onClick={onCloseClickHandler} />
         </div>
       )}
