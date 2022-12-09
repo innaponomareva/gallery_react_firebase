@@ -8,8 +8,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 2;
-  overflow: hidden;
+  z-index: 5;
 }
 .nav_btn {
   list-style: none;

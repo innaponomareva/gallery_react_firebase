@@ -54,14 +54,15 @@ const Gallery = ({ gallery }) => {
 
           {width <= 800 && (
             <>
-              {open ? (
+              {open && (
                 <VerticalList
                   gallery={gallery}
                   width={width}
                   index={index}
                   onCloseClickHandler={onCloseClickHandler}
                 />
-              ) : (
+              )}
+              {!open && (
                 <MosaicList
                   gallery={gallery}
                   onPhotoClickHandler={onPhotoClickHandler}
