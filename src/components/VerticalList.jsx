@@ -14,7 +14,7 @@ const VerticalList = ({ gallery, width, index, onCloseClickHandler }) => {
   );
 
   useEffect(() => {
-    const anchor = document.querySelector(`.photo-item-${index}`);
+    const anchor = document.querySelector(`.list-item-${index}`);
     if (anchor) {
       setTimeout(
         () => window.scroll({ top: findPos(anchor), behavior: "smooth" }),
@@ -28,10 +28,11 @@ const VerticalList = ({ gallery, width, index, onCloseClickHandler }) => {
       {gallery.length > 0 && (
         <div className={styles.vertical_list}>
           {gallery.map((item, ind) => (
-            <div key={ind}>
-              <div className={clsx(styles.photo_item, `photo-item-${ind}`)}>
-                <img src={item.fileUrl} data-index={ind} alt={item.id} />
-              </div>
+            <div
+              key={ind}
+              className={clsx(styles.list_item, `list-item-${ind}`)}
+            >
+              <img src={item.fileUrl} className={styles.photo} alt={item.id} />
               <EditBox
                 gallery={gallery}
                 index={ind}
