@@ -11,7 +11,6 @@ import {
   ADD_PHOTO,
   GET_ALL_PHOTOS,
   REMOVE_PHOTO,
-  SET_INDEX,
   SET_LOADING,
   STOP_LOADING,
   UPDATE_PHOTO,
@@ -20,15 +19,10 @@ import {
 export const PhotoState = ({ children }) => {
   const initialState = {
     photos: [],
-    targetIndex: 0,
     loading: false,
   };
   const [state, dispatch] = useReducer(PhotoReducer, initialState);
-  const { photos, targetIndex, loading } = state;
-
-  const defineTargetIndex = (index) => {
-    setDefineTargetIndex(index);
-  };
+  const { photos, loading } = state;
 
   const addPhoto = async (photo) => {
     try {
@@ -78,20 +72,16 @@ export const PhotoState = ({ children }) => {
     dispatch({ type: GET_ALL_PHOTOS, payload: data });
   const setLoading = () => dispatch({ type: SET_LOADING });
   const stopLoading = () => dispatch({ type: STOP_LOADING });
-  const setDefineTargetIndex = (index) =>
-    dispatch({ type: SET_INDEX, payload: index });
 
   return (
     <PhotoContext.Provider
       value={{
         photos,
         loading,
-        targetIndex,
         addPhoto,
         removePhoto,
         updatePhoto,
         getAllPhotos,
-        defineTargetIndex,
       }}
     >
       {children}
