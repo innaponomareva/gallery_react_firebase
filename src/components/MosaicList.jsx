@@ -3,7 +3,7 @@ import styles from "../css/mosaicList.module.css";
 
 const MosaicList = ({ gallery, onPhotoClickHandler, lineWidth }) => {
   const images = [...gallery];
-  let list = getListWithRows(images, lineWidth);
+  let list = [];
 
   while (images.length > 0) {
     const temp = getListWithRows(images, lineWidth);
