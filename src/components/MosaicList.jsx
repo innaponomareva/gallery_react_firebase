@@ -3,12 +3,7 @@ import styles from "../css/mosaicList.module.css";
 
 const MosaicList = ({ gallery, onPhotoClickHandler, lineWidth }) => {
   const images = [...gallery];
-  let list = [];
-
-  while (images.length > 0) {
-    const temp = getListWithRows(images, lineWidth);
-    list = [...list, ...temp];
-  }
+  let list = getListWithRows(images, lineWidth);
 
   return (
     <div style={{ width: lineWidth }}>
@@ -43,9 +38,11 @@ const MosaicList = ({ gallery, onPhotoClickHandler, lineWidth }) => {
 
 const getListWithRows = (images, lineWidth) => {
   const list = [];
-  const row = createRow(images, lineWidth);
-  const rowHeight = calcRowHeight(row, lineWidth);
-  list.push({ height: rowHeight, row: row });
+  while (images.length > 0) {
+    const row = createRow(images, lineWidth);
+    const rowHeight = calcRowHeight(row, lineWidth);
+    list.push({ height: rowHeight, row: row });
+  }
   return list;
 };
 
