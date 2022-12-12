@@ -42,8 +42,8 @@ const EditBox = ({ gallery, index, onHashtagClickHandler }) => {
     );
     if (result)
       removePhoto({
-        id: gallery[index].id,
-        fileNameInStorage: gallery[index].fileNameInStorage,
+        id: photo.id,
+        fileNameInStorage: photo.fileNameInStorage,
       });
   };
 

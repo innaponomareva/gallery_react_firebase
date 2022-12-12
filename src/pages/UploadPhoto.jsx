@@ -20,9 +20,9 @@ const schema = yup.object().shape({
 const UploadPhoto = () => {
   const { addPhoto } = useContext(PhotoContext);
   const { show, hide } = useContext(AlertContext);
-  const [fileUrl, setFileUrl] = useState(null);
-  const [fileNameInStorage, setfileNameInStorage] = useState(null);
-  const [fileSize, setFileSize] = useState(null);
+  const [fileUrl, setFileUrl] = useState("");
+  const [fileNameInStorage, setfileNameInStorage] = useState("");
+  const [fileSize, setFileSize] = useState(0);
 
   const onFileChange = async (event) => {
     const response = await onFileChange_fb(event, { directory: "images" });
@@ -72,13 +72,12 @@ const UploadPhoto = () => {
           size: fileSize,
         });
         show({ text: "The upload is successful!", type: "success" });
+        formik.resetForm();
+        document.querySelector("#photo").value = "";
+        setTimeout(() => hide(), 2000);
       } catch (error) {
         show({ text: error, type: "warning" });
-      } finally {
-        actions.resetForm();
       }
-      formik.resetForm();
-      setTimeout(() => hide(), 2000);
       actions.setSubmitting(false);
     },
     validationSchema: schema,
