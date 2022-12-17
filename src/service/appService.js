@@ -72,20 +72,18 @@ export async function cleanStorage_fb(directory) {
 }
 
 function getJunkFiles(obj) {
-  return Object.values(obj).filter((item) => item.count === 1);
+  return Object.values(obj).filter((item) => item === 1);
 }
 
 function checkIfFileNameExistsTwiceOrOnce(combined) {
-  // if twice => count++ => these are files in use
+  // if twice => ++ => these are files in use
   // if once => these are junk files
   const obj = {};
   for (let i = 0; i < combined.length; i++) {
-    if (obj[combined[i]] && obj[combined[i]].count === 1) {
-      obj[combined[i]].count++;
-    } else {
-      obj[combined[i]] = {};
-      obj[combined[i]].name = combined[i];
-      obj[combined[i]].count = 1;
+    if (obj[combined[i]]) {
+      obj[combined[i]]++;
+    } else if (!obj[combined[i]] && combined[i] !== undefined) {
+      obj[combined[i]] = 1;
     }
   }
   return obj;
