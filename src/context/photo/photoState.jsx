@@ -1,12 +1,12 @@
-import React, { useCallback, useReducer } from "react";
-import { PhotoContext } from "./photoContext";
-import { PhotoReducer } from "./photoReducer";
+import React, { useCallback, useReducer } from 'react';
+import { PhotoContext } from './photoContext';
+import { PhotoReducer } from './photoReducer';
 import {
   addPhoto_fb,
   getAllPhotos_fb,
   removePhoto_fb,
   updatePhoto_fb,
-} from "../../service/photoService";
+} from '../../service/photoService';
 import {
   ADD_PHOTO,
   GET_ALL_PHOTOS,
@@ -14,7 +14,7 @@ import {
   SET_LOADING,
   STOP_LOADING,
   UPDATE_PHOTO,
-} from "../types";
+} from '../types';
 
 export const PhotoState = ({ children }) => {
   const initialState = {

@@ -1,15 +1,24 @@
-import React from "react";
-import styles from "../css/navigation.module.css";
-import { NavLink } from "react-router-dom";
+import styles from '../css/navigation.module.css';
+import { NavLink } from 'react-router';
 
 const Navigation = () => {
   return (
     <ul className={styles.nav}>
       <li className={styles.nav_btn}>
-        <NavLink to="/myphotos">My photos</NavLink>
+        <NavLink
+          to="/myphotos"
+          className={({ isActive }) => (isActive ? styles.active : undefined)}
+        >
+          My photos
+        </NavLink>
       </li>
       <li className={styles.nav_btn}>
-        <NavLink to="/upload">Upload a photo</NavLink>
+        <NavLink
+          to="/upload"
+          className={({ isActive }) => (isActive ? styles.active : undefined)}
+        >
+          Upload a photo
+        </NavLink>
       </li>
     </ul>
   );

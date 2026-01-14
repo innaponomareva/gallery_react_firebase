@@ -11,6 +11,7 @@
   z-index: 2;
   overflow: hidden;
 }
+
 .nav_btn {
   list-style: none;
   font-size: 0.9rem;
@@ -18,10 +19,12 @@
   letter-spacing: 0.1rem;
   text-transform: uppercase;
 }
+
 .nav_btn a {
   color: white;
   text-decoration: none;
 }
-.nav_btn a.active {
+
+.active {
   font-weight: 500;
 }

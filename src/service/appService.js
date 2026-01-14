@@ -4,18 +4,18 @@ import {
   deleteObject,
   listAll,
   getDownloadURL,
-} from "firebase/storage";
-import { Timestamp, collection, getDocs } from "firebase/firestore";
-import { storage, firestore } from "../config/firebase_config";
+} from 'firebase/storage';
+import { Timestamp, collection, getDocs } from 'firebase/firestore';
+import { storage, firestore } from '../config/firebase_config';
 
 function calcFormat(width, height) {
-  if (width / height > 2) return "panorama";
-  if (width / height > 1) return "landscape";
-  if (width / height <= 1) return "upright";
+  if (width / height > 2) return 'panorama';
+  if (width / height > 1) return 'landscape';
+  if (width / height <= 1) return 'upright';
 }
 
 function createUniqueFileNameInStorage(file) {
-  return file.name + "_" + Timestamp.now().seconds;
+  return file.name + '_' + Timestamp.now().seconds;
 }
 
 export async function onFileChange_fb(event, { directory }) {
@@ -46,7 +46,7 @@ export async function onFileChange_fb(event, { directory }) {
       },
     };
   } catch (error) {
-    console.log("error ", error.message);
+    console.log('error ', error.message);
     return Promise.reject(error.message);
   }
 }
@@ -60,7 +60,7 @@ export async function cleanStorage_fb(directory) {
     const junkFiles = await getJunkFiles(obj);
 
     if (junkFiles.length > 0) {
-      console.log("junkFiles", junkFiles);
+      console.log('junkFiles', junkFiles);
       junkFiles.forEach((item) => {
         const pathReference = ref(storage, `${directory}/${item.name}`);
         deleteObject(pathReference);
