@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect } from "react";
-import styles from "../css/verticalList.module.css";
-import clsx from "clsx";
-import { BsX } from "react-icons/bs";
-import EditBox from "./EditBox";
+import { useCallback, useEffect } from 'react';
+import styles from '../css/verticalList.module.css';
+import clsx from 'clsx';
+import { BsX } from 'react-icons/bs';
+import EditBox from './EditBox';
 
 const VerticalList = ({ gallery, width, index, onCloseClickHandler }) => {
   const findPos = useCallback(
@@ -17,7 +17,7 @@ const VerticalList = ({ gallery, width, index, onCloseClickHandler }) => {
     const anchor = document.querySelector(`.list-item-${index}`);
     if (anchor) {
       setTimeout(
-        () => window.scroll({ top: findPos(anchor), behavior: "smooth" }),
+        () => window.scroll({ top: findPos(anchor), behavior: 'smooth' }),
         200
       );
     }

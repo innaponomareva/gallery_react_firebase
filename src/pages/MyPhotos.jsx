@@ -1,7 +1,7 @@
-import React, { useContext, useEffect } from "react";
-import { PhotoContext } from "../context/photo/photoContext";
-import Gallery from "../components/Gallery";
-import Loader from "../components/Loader";
+import { useContext, useEffect } from 'react';
+import { PhotoContext } from '../context/photo/photoContext';
+import Gallery from '../components/Gallery';
+import Loader from '../components/Loader';
 
 const MyPhotos = () => {
   const { photos, getAllPhotos, loading } = useContext(PhotoContext);

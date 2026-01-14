@@ -1,31 +1,31 @@
-import React, { useContext, useEffect, useState } from "react";
-import styles from "../css/form.module.css";
-import { Timestamp } from "firebase/firestore";
-import { useFormik } from "formik";
-import * as yup from "yup";
-import { cleanStorage_fb, onFileChange_fb } from "../service/appService";
-import { PhotoContext } from "../context/photo/photoContext";
-import { Alert } from "../components/Alert";
-import { AlertContext } from "../context/alert/alertContext";
-import clsx from "clsx";
+import { useContext, useEffect, useState } from 'react';
+import styles from '../css/form.module.css';
+import { Timestamp } from 'firebase/firestore';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import { cleanStorage_fb, onFileChange_fb } from '../service/appService';
+import { PhotoContext } from '../context/photo/photoContext';
+import { Alert } from '../components/Alert';
+import { AlertContext } from '../context/alert/alertContext';
+import clsx from 'clsx';
 
 const schema = yup.object().shape({
   description: yup
     .string()
-    .min(1, "Too short description")
-    .max(200, "Too long description")
-    .required("Describe your photo, please."), // check if input is empty
+    .min(1, 'Too short description')
+    .max(200, 'Too long description')
+    .required('Describe your photo, please.'), // check if input is empty
 });
 
 const UploadPhoto = () => {
   const { addPhoto } = useContext(PhotoContext);
   const { show, hide } = useContext(AlertContext);
-  const [fileUrl, setFileUrl] = useState("");
-  const [fileNameInStorage, setfileNameInStorage] = useState("");
+  const [fileUrl, setFileUrl] = useState('');
+  const [fileNameInStorage, setfileNameInStorage] = useState('');
   const [fileSize, setFileSize] = useState(0);
 
   const onFileChange = async (event) => {
-    const response = await onFileChange_fb(event, { directory: "images" });
+    const response = await onFileChange_fb(event, { directory: 'images' });
     setFileUrl(response.fileUrl);
     setfileNameInStorage(response.fileNameInStorage);
     setFileSize(response.size);
@@ -33,12 +33,12 @@ const UploadPhoto = () => {
 
   const getHashtags = (desc) => {
     const array = [];
-    const temp = desc.split(" ");
+    const temp = desc.split(' ');
     temp.forEach((item) => {
-      if (item.startsWith("#")) {
-        const hashtagArray = item.split("");
+      if (item.startsWith('#')) {
+        const hashtagArray = item.split('');
         hashtagArray.splice(0, 1);
-        const string = hashtagArray.join("");
+        const string = hashtagArray.join('');
         array.push(string);
       }
       return null;
@@ -48,14 +48,14 @@ const UploadPhoto = () => {
 
   useEffect(() => {
     return () => {
-      cleanStorage_fb("images");
+      cleanStorage_fb('images');
       hide();
     };
   }, [hide]);
 
   const formik = useFormik({
     initialValues: {
-      description: "",
+      description: '',
     },
 
     onSubmit: async (values, actions) => {
@@ -63,7 +63,7 @@ const UploadPhoto = () => {
       const hashtags = getHashtags(values.description);
       try {
         await addPhoto({
-          id: "img_" + Timestamp.now().seconds,
+          id: 'img_' + Timestamp.now().seconds,
           created: Timestamp.now().seconds,
           fileNameInStorage,
           description: values.description,
@@ -71,12 +71,12 @@ const UploadPhoto = () => {
           fileUrl: fileUrl,
           size: fileSize,
         });
-        show({ text: "The upload is successful!", type: "success" });
+        show({ text: 'The upload is successful!', type: 'success' });
         formik.resetForm();
-        document.querySelector("#photo").value = "";
+        document.querySelector('#photo').value = '';
         setTimeout(() => hide(), 2000);
       } catch (error) {
-        show({ text: error, type: "warning" });
+        show({ text: error, type: 'warning' });
       }
       actions.setSubmitting(false);
     },

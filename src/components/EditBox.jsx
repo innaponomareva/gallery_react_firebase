@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
-import styles from "../css/editBox.module.css";
-import { useFormik } from "formik";
-import { BsCheckCircle, BsXCircle, BsTrash, BsPencil } from "react-icons/bs";
-import { PhotoContext } from "../context/photo/photoContext";
-import clsx from "clsx";
+import { useContext, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import styles from '../css/editBox.module.css';
+import { useFormik } from 'formik';
+import { BsCheckCircle, BsXCircle, BsTrash, BsPencil } from 'react-icons/bs';
+import { PhotoContext } from '../context/photo/photoContext';
+import clsx from 'clsx';
 
 const EditBox = ({ gallery, index, onHashtagClickHandler }) => {
   const { updatePhoto, removePhoto } = useContext(PhotoContext);
@@ -13,9 +13,9 @@ const EditBox = ({ gallery, index, onHashtagClickHandler }) => {
 
   const transformDescription = (desc) => {
     const output = [];
-    const temp = desc.split(" ");
+    const temp = desc.split(' ');
     temp.forEach((item, ind) => {
-      if (item.startsWith("#")) {
+      if (item.startsWith('#')) {
         const path = item.substring(1, item.length);
         const link = (
           <NavLink
@@ -23,14 +23,14 @@ const EditBox = ({ gallery, index, onHashtagClickHandler }) => {
             to={`/myphotos/${path}`}
             onClick={onHashtagClickHandler}
           >
-            {"#" + path}
+            {'#' + path}
           </NavLink>
         );
-        output.push(" ");
+        output.push(' ');
         output.push(link);
-        output.push(" ");
+        output.push(' ');
       } else {
-        output.push(" " + item + " ");
+        output.push(' ' + item + ' ');
       }
     });
     return output;
@@ -38,7 +38,7 @@ const EditBox = ({ gallery, index, onHashtagClickHandler }) => {
 
   const onRemoveClickHandler = () => {
     const result = window.confirm(
-      "Are you sure you want to delete this photo?"
+      'Are you sure you want to delete this photo?'
     );
     if (result)
       removePhoto({
@@ -125,12 +125,12 @@ export default EditBox;
 
 const getHashtags = (desc) => {
   const array = [];
-  const temp = desc.split(" ");
+  const temp = desc.split(' ');
   temp.forEach((item) => {
-    if (item.startsWith("#")) {
-      const hashtagArray = item.split("");
+    if (item.startsWith('#')) {
+      const hashtagArray = item.split('');
       hashtagArray.splice(0, 1);
-      const string = hashtagArray.join("");
+      const string = hashtagArray.join('');
       array.push(string);
     }
     return null;

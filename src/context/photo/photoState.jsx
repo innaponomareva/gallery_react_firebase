@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer } from 'react';
+import { useCallback, useReducer } from 'react';
 import { PhotoContext } from './photoContext';
 import { PhotoReducer } from './photoReducer';
 import {

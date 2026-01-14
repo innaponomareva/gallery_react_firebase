@@ -1,6 +1,5 @@
-import React from "react";
-import "../css/slider.css";
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import '../css/slider.css';
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 
 const Slider = ({ gallery, index, prevBtnHandler, nextBtnHandler }) => (
   <>

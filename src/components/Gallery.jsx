@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import ModalWindow from "./ModalWindow";
-import MosaicList from "./MosaicList";
-import VerticalList from "./VerticalList";
+import { useEffect, useState } from 'react';
+import ModalWindow from './ModalWindow';
+import MosaicList from './MosaicList';
+import VerticalList from './VerticalList';
 
 const Gallery = ({ gallery }) => {
   const [index, setIndex] = useState(0);
@@ -12,12 +12,12 @@ const Gallery = ({ gallery }) => {
     function handleResize() {
       setWidth(window.innerWidth);
     }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [width, setOpen]);
 
   const onPhotoClickHandler = (event) => {
-    const currIndex = event.target.getAttribute("data-index");
+    const currIndex = event.target.getAttribute('data-index');
     setIndex(parseInt(currIndex));
     setOpen(true);
   };

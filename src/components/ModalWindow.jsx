@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react";
-import "../css/modalWindow.css";
-import { BsX } from "react-icons/bs";
-import EditBox from "./EditBox";
-import Slider from "./Slider";
+import { useCallback, useEffect, useState } from 'react';
+import '../css/modalWindow.css';
+import { BsX } from 'react-icons/bs';
+import EditBox from './EditBox';
+import Slider from './Slider';
 
 const ModalWindow = ({ gallery, initialIndex, onCloseClickHandler }) => {
   const [index, setIndex] = useState(initialIndex);
@@ -25,14 +25,14 @@ const ModalWindow = ({ gallery, initialIndex, onCloseClickHandler }) => {
 
   useEffect(() => {
     const handleKeyEvent = (event) => {
-      if (event.key === "ArrowRight") {
+      if (event.key === 'ArrowRight') {
         nextBtnHandler();
-      } else if (event.key === "ArrowLeft") {
+      } else if (event.key === 'ArrowLeft') {
         prevBtnHandler();
       }
     };
-    document.addEventListener("keydown", handleKeyEvent);
-    return () => document.removeEventListener("keydown", handleKeyEvent);
+    document.addEventListener('keydown', handleKeyEvent);
+    return () => document.removeEventListener('keydown', handleKeyEvent);
   }, [nextBtnHandler, prevBtnHandler]);
 
   return (

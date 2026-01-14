@@ -1,5 +1,4 @@
-import React from "react";
-import styles from "../css/mosaicList.module.css";
+import styles from '../css/mosaicList.module.css';
 
 const MosaicList = ({ gallery, onPhotoClickHandler, lineWidth }) => {
   const images = [...gallery];
@@ -55,24 +54,24 @@ const createRow = (images, lineWidth) => {
 
   for (let index = 0; index < images.length; index++) {
     rowItems.push(images[index]);
-    if (images[index].size.format === "upright") upright++;
-    if (images[index].size.format === "landscape") landscape++;
-    if (images[index].size.format === "panorama") panorama++;
+    if (images[index].size.format === 'upright') upright++;
+    if (images[index].size.format === 'landscape') landscape++;
+    if (images[index].size.format === 'panorama') panorama++;
 
     if (lineWidth === 1000) {
       if (upright === 4) break;
       if (upright === 3) {
         if (!images[index + 1]) break;
-        if (images[index + 1].size.format === "panorama") break;
-        if (images[index + 1].size.format === "landscape") break;
+        if (images[index + 1].size.format === 'panorama') break;
+        if (images[index + 1].size.format === 'landscape') break;
       }
       if (upright === 2 && landscape === 1) break;
       if (upright === 2 && panorama === 1) break;
       if (upright === 1 && landscape === 2) break;
       if (landscape === 2) {
         if (!images[index + 1]) break;
-        if (images[index + 1].size.format === "panorama") break;
-        if (images[index + 1].size.format === "landscape") break;
+        if (images[index + 1].size.format === 'panorama') break;
+        if (images[index + 1].size.format === 'landscape') break;
       }
       if (landscape === 1 && panorama === 1) break;
     } else if (lineWidth < 1000) {
