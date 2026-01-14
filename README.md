@@ -1,10 +1,10 @@
-# Photo Gallery (React + Firebase)
+## Photo Gallery (React + Firebase)
 
 A mosaic photo gallery built with React + Firebase.
 
 👉 **Live Demo:** https://innaponomareva.github.io/gallery_react_firebase
 
-## 🚀 Features
+### 🚀 Features
 
 - Upload photos from **Upload a photo** page
 - Validate form
@@ -16,7 +16,7 @@ A mosaic photo gallery built with React + Firebase.
 - Navigate with **React Router** (hash routing for GitHub Pages)
 - Responsive layout
 
-## 🧩 Tech Stack
+### 🧩 Tech Stack
 
 - React (Vite)
 - Firebase
@@ -25,7 +25,7 @@ A mosaic photo gallery built with React + Firebase.
 - clsx
 - React Icons
 
-## 🖼️ Screenshots
+### 🖼️ Screenshots
 
 <img width="1490" height="723" alt="Screenshot 2026-01-14 at 04 07 50" src="https://github.com/user-attachments/assets/85e6a3de-4ab4-4fa3-9810-fbdd18822d36" />
 <img width="1494" height="725" alt="Screenshot 2026-01-14 at 04 08 48" src="https://github.com/user-attachments/assets/2c2737f6-de58-4ea6-a41c-e959ea708d53" />
