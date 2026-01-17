@@ -1,4 +1,4 @@
-## Photo Gallery (React + Firebase)
+## Photo Gallery (React + Firebase) WIP
 
 A mosaic photo gallery built with React + Firebase.
 
