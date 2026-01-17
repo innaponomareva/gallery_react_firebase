@@ -1,13 +1,13 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../css/form.module.css';
 import { Timestamp } from 'firebase/firestore';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { cleanStorage_fb, onFileChange_fb } from '../service/appService';
 import { Alert } from '../components/Alert';
-import { AlertContext } from '../context/alert/alertContext';
 import clsx from 'clsx';
 import { usePhotoState } from '../context/photo/usePhotoState';
+import { useAlertState } from '../context/alert/useAlertState';
 
 const schema = yup.object().shape({
   description: yup
@@ -19,7 +19,7 @@ const schema = yup.object().shape({
 
 const UploadPhoto = () => {
   const { addPhoto } = usePhotoState();
-  const { show, hide } = useContext(AlertContext);
+  const { show, hide } = useAlertState();
   const [fileUrl, setFileUrl] = useState('');
   const [fileNameInStorage, setfileNameInStorage] = useState('');
   const [fileSize, setFileSize] = useState(0);

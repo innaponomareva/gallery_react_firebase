@@ -1,10 +1,9 @@
-import { useContext } from 'react';
 import '../css/alert.css';
 import { BsX } from 'react-icons/bs';
-import { AlertContext } from '../context/alert/alertContext';
+import { useAlertState } from '../context/alert/useAlertState';
 
 export const Alert = () => {
-  const { alert, hide } = useContext(AlertContext);
+  const { alert, hide } = useAlertState();
 
   if (!alert) return null;
 
