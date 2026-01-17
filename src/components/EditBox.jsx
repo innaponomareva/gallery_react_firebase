@@ -1,13 +1,13 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from '../css/editBox.module.css';
 import { useFormik } from 'formik';
 import { BsCheckCircle, BsXCircle, BsTrash, BsPencil } from 'react-icons/bs';
-import { PhotoContext } from '../context/photo/photoContext';
 import clsx from 'clsx';
+import { usePhotoState } from '../context/photo/usePhotoState';
 
 const EditBox = ({ gallery, index, onHashtagClickHandler }) => {
-  const { updatePhoto, removePhoto } = useContext(PhotoContext);
+  const { updatePhoto, removePhoto } = usePhotoState();
   const [isDisabled, setIsDisabled] = useState(true);
   const photo = gallery[index];
 

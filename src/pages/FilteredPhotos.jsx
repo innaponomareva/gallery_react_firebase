@@ -1,17 +1,12 @@
-import { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Gallery from '../components/Gallery';
 import Loader from '../components/Loader';
-import { PhotoContext } from '../context/photo/photoContext';
+import { usePhotoState } from '../context/photo/usePhotoState';
 
 const FilteredPhotos = () => {
-  const { photos, getAllPhotos, loading } = useContext(PhotoContext);
+  const { photos, loading } = usePhotoState();
   const { id } = useParams();
   const selection = photos.filter((item) => item.hashtags.includes(id));
-
-  useEffect(() => {
-    getAllPhotos();
-  }, [getAllPhotos]);
 
   return (
     <>

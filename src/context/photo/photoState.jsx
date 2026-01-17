@@ -1,4 +1,4 @@
-import { useCallback, useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import { PhotoContext } from './photoContext';
 import { PhotoReducer } from './photoReducer';
 import {
@@ -21,6 +21,7 @@ export const PhotoState = ({ children }) => {
     photos: [],
     loading: false,
   };
+
   const [state, dispatch] = useReducer(PhotoReducer, initialState);
   const { photos, loading } = state;
 
@@ -51,7 +52,7 @@ export const PhotoState = ({ children }) => {
     }
   };
 
-  const getAllPhotos = useCallback(async () => {
+  const getAllPhotos = async () => {
     setLoading();
     try {
       const response = await getAllPhotos_fb();
@@ -61,7 +62,7 @@ export const PhotoState = ({ children }) => {
     } finally {
       stopLoading();
     }
-  }, []);
+  };
 
   // Actions:
   const setAddPhoto = (photo) => dispatch({ type: ADD_PHOTO, payload: photo });
@@ -73,6 +74,11 @@ export const PhotoState = ({ children }) => {
   const setLoading = () => dispatch({ type: SET_LOADING });
   const stopLoading = () => dispatch({ type: STOP_LOADING });
 
+  useEffect(() => {
+    getAllPhotos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <PhotoContext.Provider
       value={{
@@ -81,7 +87,6 @@ export const PhotoState = ({ children }) => {
         addPhoto,
         removePhoto,
         updatePhoto,
-        getAllPhotos,
       }}
     >
       {children}
